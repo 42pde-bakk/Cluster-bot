@@ -1,0 +1,3 @@
+[submodule "42-cluster"]
+	path = 42-cluster
+	url = https://github.com/DutChen18/42-cluster.git
