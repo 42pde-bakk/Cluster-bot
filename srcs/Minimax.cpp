@@ -6,6 +6,7 @@
 #include <cmath>
 #include <climits>
 
+std::vector<Gamestate*> all_gamestates;
 
 Minimax::Minimax() : max_depth(5) {
 }
@@ -18,7 +19,10 @@ Gamestate *Minimax::minimax(Gamestate *gs, int depth, bool maximizing_player) {
 	float		best_value;
 	Gamestate	*res;
 
-	gs->spawn_new_children();
+	if (depth == 0)
+		gs->spawn_children_first((int)maximizing_player);
+	else
+		gs->spawn_children((int)maximizing_player); // maximizing_player coincides with the id of the player
 	if (depth == this->max_depth || gs->children.empty())
 		return (gs);
 
@@ -50,7 +54,7 @@ Gamestate *Minimax::alphabeta(Gamestate *gs, int depth, bool maximizing_player, 
 	float		best_value;
 	Gamestate	*res;
 
-	gs->spawn_new_children();
+	gs->spawn_new_children_drops(0, 0);
 	if (depth == this->max_depth || gs->children.empty())
 		return (gs);
 
