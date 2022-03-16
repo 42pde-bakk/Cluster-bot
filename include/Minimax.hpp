@@ -16,13 +16,9 @@ public:
 	Minimax();
 	explicit Minimax(int maxdepth);
 
-	Gamestate *minimax(Gamestate *gs, int depth, bool maximizing_player);
-	Gamestate *alphabeta(Gamestate *gs, int depth, bool maximizing_player, float alpha, float beta);
+	Gamestate * minimax(Gamestate *gs, int depth, bool maximizing_player);
+	Gamestate * alphabeta(Gamestate *gs, int depth, bool maximizing_player, float alpha, float beta);
 };
-
-
-int minimax(Gamestate *state, int depth, bool maximizing_player);
-
 
 
 #endif //CLUSTERBOT_MINIMAX_HPP

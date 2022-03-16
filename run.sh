@@ -1,10 +1,6 @@
 #!/usr/bin/env bash
 
-make
+set -e
 
-cd 42-cluster || exit
-make && make bot
+./42-cluster/cluster ./clusterbot ./42-cluster/bot
 
-./cluster ../clusterbot ./bot
-
-cd - || exit

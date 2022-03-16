@@ -1,6 +1,6 @@
 NAME = clusterbot
 INCLUDE = -Iinclude
-HEADER = include/bot.hpp
+HEADER = include/*.hpp
 
 SRC_DIR = srcs
 BUILD_DIR = obj
@@ -21,12 +21,12 @@ RED = \x1b[31;01m
 WHITE = \x1b[31;37m
 RESET = \x1b[0m
 
-CFLAGS = -Wall -Werror -Wextra
+CXXFLAGS = -Wall -Werror -Wextra -pedantic -std=c++14
 ifdef DEBUG
- CFLAGS += -g3
+ CXXFLAGS += -g3
 endif
 ifdef LEAKS
- CFLAGS += -g3 -fsanitize=address
+ CXXFLAGS += -g3 -fsanitize=address
 endif
 
 SHELL := /bin/bash
@@ -39,12 +39,12 @@ directories:
 	@mkdir -p $(BUILD_DIR)
 
 $(NAME): $(OBJECTS) $(HEADER)
-	$(CC) $(CFLAGS) $(OBJECTS) -o $(NAME)
+	$(CXX) $(CXXFLAGS) $(OBJECTS) -o $(NAME)
 	@printf "$(PINK)Done building $(NAME) $(RESET)\n"
 
 $(BUILD_DIR)/%.o: $(SRC_DIR)/%.$(SRC_EXT)
-	mkdir -p $(dir $@)
-	$(CC) $(CFLAGS) -c $(INCLUDE) $^ -o $@
+	@mkdir -p $(dir $@)
+	$(CXX) $(CXXFLAGS) -c $(INCLUDE) $^ -o $@
 
 clean:
 	/bin/rm -f $(OBJECTS)
