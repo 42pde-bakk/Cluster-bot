@@ -7,33 +7,42 @@
 
 #include <array>
 
-struct Chip {
-	int colour;
-	int amount;
-};
-
 class Player {
-	int _id;
-	std::array<Chip, 2> chips;
+	int _id{};
+	std::array<int, 2>	colours{};
+	int _amount{};
 
 public:
-	bool	_isme;
-	int	remove_chip(int idx) {
-		assert(idx >= 0 && idx < 2);
-		if (chips[idx].amount <= 0)
-			return (1);
-		chips[idx].amount--;
+
+	Player& operator=(const Player& x) {
+//		dprintf(2, "in player operator=, %p %p\n", (void *)this, (void*)&x);
+		if (this != &x) {
+			_id = x._id;
+			colours = x.colours;
+			_amount = x._amount;
+			_isme = x._isme;
+		}
+		return (*this);
+	}
+	bool	_isme{};
+	int remove_chip() {
+		--_amount;
 		return (0);
 	}
-	Chip&	get_chip(int idx) {
+	int get_chip(int idx) {
 		assert(idx >= 0 && idx < 2);
-		return (this->chips[idx]);
+		return (colours[idx]);
 	}
-	void	set_chip(int idx, int amount, int colour) {
-		assert(idx >= 0 && idx < 2);
-		this->chips[idx].amount = amount;
-		this->chips[idx].colour = colour;
+	void set_chips(int col1, int col2, int amount) {
+		colours[0] = col1;
+		colours[1] = col2;
+		this->_amount = amount;
 	}
+
+	int	get_amount_left() const {
+		return (this->_amount);
+	}
+
 	int		get_id() { return (this->_id); }
 
 };

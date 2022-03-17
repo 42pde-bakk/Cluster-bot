@@ -20,7 +20,6 @@ typedef enum cmd {
 	ERROR
 }	e_cmd;
 
-void	read_action(char *action, int *pos, int *value);
 int read_gravity();
 
 

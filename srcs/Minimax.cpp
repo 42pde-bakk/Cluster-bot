@@ -54,7 +54,7 @@ Gamestate *Minimax::alphabeta(Gamestate *gs, int depth, bool maximizing_player, 
 	float		best_value;
 	Gamestate	*res;
 
-	gs->spawn_new_children_drops(0, 0);
+	gs->spawn_new_children_drops(0, maximizing_player);
 	if (depth == this->max_depth || gs->children.empty())
 		return (gs);
 

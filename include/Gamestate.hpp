@@ -27,7 +27,7 @@ public:
 	Action			action{};
 
 	Gamestate();
-	void spawn_new_children_drops(int chip_nb, int player_id);
+	void spawn_new_children_drops(int chip_idx, int p_id);
 	void spawn_new_children_rotations(int player_id);
 
 public:

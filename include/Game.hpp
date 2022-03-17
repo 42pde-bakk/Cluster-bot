@@ -27,7 +27,7 @@ public:
 	Inventory	my_inventory;
 
 	Game();
-	void	read_action();
+	void read_action(char *action, int *pos, int *value);
 
 	void	check_inventory();
 
