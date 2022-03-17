@@ -98,7 +98,7 @@ bool Gamestate::drop_tile(int column, int honkychonky, OffsetCoordinates *result
 	std::cerr << "directions[" << move_dir << "] = " << directions[move_dir] << '\n';
 	OffsetCoordinates droptile = tops(size, gravity) + directions[move_dir] * distance;
 	std::cerr << "droptile: " << droptile << '\n';
-	assert(droptile.col >= 0 && droptile.row >= 0 && droptile.col < 7 && droptile.row < 7);
+//	assert(droptile.col >= 0 && droptile.row >= 0 && droptile.col < 7 && droptile.row < 7);
 	dprintf(2, "indexing vec at vec[%d][%d]\n", droptile.row, droptile.col);
 	dprintf(2, "at that location, we have tilevalue %d\n", this->vec[droptile.row][droptile.col]);
 	if (this->vec[droptile.row][droptile.col] != -1)
