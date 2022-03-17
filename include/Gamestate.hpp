@@ -11,6 +11,7 @@
 #include "Cube.hpp"
 #include "Action.hpp"
 #include "OffsetCoordinates.hpp"
+#include <cassert>
 
 class Gamestate {
 	std::array<Player, 2>	players;

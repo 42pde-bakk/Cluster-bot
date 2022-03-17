@@ -53,8 +53,8 @@ void Game::read_action(char *action, int *pos, int *value) {
 	if (strcmp(action, "rotate") == 0) {
 		scanf("%d", value);
 		dprintf(2, "value = %d\n", *value);
-		this->root->fetch_chips();
-		this->root->set_h();
+		this->root->get_player(!id).remove_chip();
+		this->root->get_player(!id).remove_chip();
 	} else if (strcmp(action, "drop") == 0) {
 		scanf("%d %d", pos, value);
 		dprintf(2, "pos=%d, value=%d\n", *pos, *value);

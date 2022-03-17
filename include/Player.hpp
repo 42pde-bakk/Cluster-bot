@@ -6,6 +6,7 @@
 #define CLUSTERBOT_PLAYER_HPP
 
 #include <array>
+#include <cassert>
 
 class Player {
 	int _id{};

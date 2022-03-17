@@ -4,6 +4,7 @@
 
 #ifndef CLUSTERBOT_COMMANDS_HPP
 #define CLUSTERBOT_COMMANDS_HPP
+#include <cstring>
 
 typedef enum cmd {
 	INIT,
